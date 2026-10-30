@@ -576,6 +576,7 @@ nav a.active::after {
         <li><a href="#stadion">STADION</a></li>
         <li><a href="#trofea">TROFEA</a></li>
     </ul>
+<a href="#terminarz">TERMINARZ</a>
 </nav>
 
 <header id="home">
@@ -1087,5 +1088,39 @@ sections.forEach((section) => {
 });
 </script>
 
+<section id="terminarz" class="reveal">
+    <h2>TERMINARZ BAYERN MONACHIUM</h2>
+    <div id="matches-container">
+        <p>Ładowanie meczów...</p>
+    </div>
+</section>
+<script>
+async function loadMatches() {
+    const container = document.getElementById("matches-container");
+
+    try {
+        const response = await fetch("matches.json");
+        if (!response.ok) throw new Error("Nie udało się pobrać meczów");
+
+        const data = await response.json();
+        const matches = data.matches || [];
+
+        container.innerHTML = matches.map(match => `
+            <div class="match-card">
+                <h3>${match.homeTeam.name} – ${match.awayTeam.name}</h3>
+                <p>${new Date(match.utcDate).toLocaleString("pl-PL")}</p>
+                <p>${match.status === "FINISHED"
+                    ? match.score.fullTime.home + " : " + match.score.fullTime.away
+                    : "Mecz jeszcze przed nami"}</p>
+                <small>${match.competition.name}</small>
+            </div>
+        `).join("");
+    } catch (error) {
+        container.innerHTML = "<p>Nie udało się załadować terminarza.</p>";
+    }
+}
+
+loadMatches();
+</script>
 </body>
 </html>
