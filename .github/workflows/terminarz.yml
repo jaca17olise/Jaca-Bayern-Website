@@ -25,7 +25,7 @@ jobs:
           import urllib.request
 
           headers = {"X-Auth-Token": os.environ["FOOTBALL_API_KEY"]}
-          url = "https://api.football-data.org/v4/teams/5/matches?status=SCHEDULED,LIVE,IN_PLAY,PAUSED,FINISHED"
+          url = "https://api.football-data.org/v4/teams/5/matches"
 
           request = urllib.request.Request(url, headers=headers)
 
