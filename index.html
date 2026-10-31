@@ -605,35 +605,59 @@ nav a.active::after {
     background: linear-gradient(90deg, var(--red), var(--blue));
 }
 
-.match-card h3 {
-    font-size: 18px;
-    margin-bottom: 18px;
-    line-height: 1.5;
+    }
+.match-card {
+    background: linear-gradient(145deg, #202027, #141419);
+    border: 1px solid #303039;
+    border-radius: 14px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.3s ease;
 }
 
-.match-card p {
-    color: #ccc;
-    margin: 10px 0;
-}
-
-.match-card p:nth-of-type(2) {
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
+.match-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--blue);
 }
 
 .match-card small {
-    display: inline-block;
-    margin-top: 12px;
     color: var(--red);
     font-weight: bold;
-    text-transform: uppercase;
 }
 
-@media (max-width: 600px) {
-    #matches-container {
-        grid-template-columns: 1fr;
-    }
+.match-date {
+    color: #aaa;
+    font-size: 13px;
+    margin: 12px 0 20px;
+}
+
+.match-teams {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.match-teams h3 {
+    color: white;
+    font-size: 19px;
+    margin: 0;
+}
+
+.match-score {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    padding: 8px 20px;
+    background: #292933;
+    border-radius: 10px;
+}
+
+.match-status {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 18px;
+    font-weight: bold;
 }
 </style>
   
@@ -1181,16 +1205,31 @@ async function loadMatches() {
         const data = await response.json();
         const matches = data.matches || [];
 
-        container.innerHTML = matches.map(match => `
-            <div class="match-card">
-                <h3>${match.homeTeam.name} – ${match.awayTeam.name}</h3>
-                <p>${new Date(match.utcDate).toLocaleString("pl-PL")}</p>
-                <p>${match.status === "FINISHED"
+       container.innerHTML = matches.map(match => `
+    <div class="match-card">
+        <small>${match.competition.name}</small>
+
+        <p class="match-date">
+            ${new Date(match.utcDate).toLocaleString("pl-PL")}
+        </p>
+
+        <div class="match-teams">
+            <h3>${match.homeTeam.name}</h3>
+
+            <div class="match-score">
+                ${match.status === "FINISHED"
                     ? match.score.fullTime.home + " : " + match.score.fullTime.away
-                    : "Mecz jeszcze przed nami"}</p>
-                <small>${match.competition.name}</small>
+                    : "VS"}
             </div>
-        `).join("");
+
+            <h3>${match.awayTeam.name}</h3>
+        </div>
+
+        <p class="match-status">
+            ${match.status === "FINISHED" ? "KONIEC MECZU" : "MECZ PRZED NAMI"}
+        </p>
+    </div>
+`).join("");
     } catch (error) {
     console.error("Błąd terminarza:", error);
     container.innerHTML = "<p>" + error.message + "</p>";
