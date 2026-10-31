@@ -982,7 +982,12 @@ src= "https://upload.wikimedia.org/wikipedia/commons/a/a0/Allianz_arena_rojo.jpe
         </div>
     </div>
 </section>
-
+<section id="terminarz" class="reveal">
+    <h2>TERMINARZ BAYERN MONACHIUM</h2>
+    <div id="matches-container">
+        <p>Ładowanie meczów...</p>
+    </div>
+</section>
 <footer>
     <h2>FC <span>BAYERN</span> MÜNCHEN</h2>
     <p>MIA SAN MIA — Zawsze razem. Zawsze Bayern.</p>
@@ -1088,18 +1093,13 @@ sections.forEach((section) => {
 });
 </script>
 
-<section id="terminarz" class="reveal">
-    <h2>TERMINARZ BAYERN MONACHIUM</h2>
-    <div id="matches-container">
-        <p>Ładowanie meczów...</p>
-    </div>
 </section>
 <script>
 async function loadMatches() {
     const container = document.getElementById("matches-container");
 
     try {
-        const response = await fetch("matches.json");
+        const response = await fetch("/Jaca-Bayern-Website/matches.json");
         if (!response.ok) throw new Error("Nie udało się pobrać meczów");
 
         const data = await response.json();
@@ -1116,10 +1116,10 @@ async function loadMatches() {
             </div>
         `).join("");
     } catch (error) {
-        container.innerHTML = "<p>Nie udało się załadować terminarza.</p>";
-    }
+    console.error("Błąd terminarza:", error);
+    container.innerHTML = "<p>" + error.message + "</p>";
+   }
 }
-
 loadMatches();
 </script>
 </body>
