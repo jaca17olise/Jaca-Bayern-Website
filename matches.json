@@ -9,9 +9,9 @@
     "competitions": "BL1,CL",
     "first": "2026-08-28",
     "last": "2027-05-22",
-    "played": 12,
+    "played": 13,
     "wins": 4,
-    "draws": 35,
+    "draws": 34,
     "losses": 0
   },
   "matches": [
@@ -174,7 +174,7 @@
       "matchday": 1,
       "stage": "LEAGUE_STAGE",
       "group": null,
-      "lastUpdated": "2026-11-07T10:20:28Z",
+      "lastUpdated": "2026-11-07T15:20:10Z",
       "homeTeam": {
         "id": 5,
         "name": "FC Bayern München",
@@ -438,7 +438,7 @@
       "matchday": 2,
       "stage": "LEAGUE_STAGE",
       "group": null,
-      "lastUpdated": "2026-11-07T10:20:28Z",
+      "lastUpdated": "2026-11-07T15:20:10Z",
       "homeTeam": {
         "id": 5720,
         "name": "Viking FK",
@@ -570,7 +570,7 @@
       "matchday": 3,
       "stage": "LEAGUE_STAGE",
       "group": null,
-      "lastUpdated": "2026-11-07T10:20:28Z",
+      "lastUpdated": "2026-11-07T15:20:10Z",
       "homeTeam": {
         "id": 5,
         "name": "FC Bayern München",
@@ -768,7 +768,7 @@
       "matchday": 4,
       "stage": "LEAGUE_STAGE",
       "group": null,
-      "lastUpdated": "2026-11-07T10:20:28Z",
+      "lastUpdated": "2026-11-07T15:20:10Z",
       "homeTeam": {
         "id": 78,
         "name": "Club Atlético de Madrid",
@@ -830,11 +830,11 @@
       },
       "id": 565851,
       "utcDate": "2026-11-07T14:30:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 9,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "lastUpdated": "2026-11-07T10:20:28Z",
+      "lastUpdated": "2026-11-07T17:27:51Z",
       "homeTeam": {
         "id": 15,
         "name": "1. FSV Mainz 05",
@@ -850,21 +850,28 @@
         "crest": "https://crests.football-data.org/5.png"
       },
       "score": {
-        "winner": null,
+        "winner": "AWAY_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 2
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         }
       },
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 57519,
+          "name": "Robert Schröder",
+          "type": "REFEREE",
+          "nationality": "Germany"
+        }
+      ]
     },
     {
       "area": {
@@ -952,7 +959,7 @@
       "matchday": 5,
       "stage": "LEAGUE_STAGE",
       "group": null,
-      "lastUpdated": "2026-11-07T10:20:28Z",
+      "lastUpdated": "2026-11-07T15:20:10Z",
       "homeTeam": {
         "id": 521,
         "name": "Lille OSC",
@@ -1129,7 +1136,7 @@
       "matchday": 6,
       "stage": "LEAGUE_STAGE",
       "group": null,
-      "lastUpdated": "2026-11-07T10:20:28Z",
+      "lastUpdated": "2026-11-07T15:20:10Z",
       "homeTeam": {
         "id": 5,
         "name": "FC Bayern München",
@@ -1483,7 +1490,7 @@
       "matchday": 7,
       "stage": "LEAGUE_STAGE",
       "group": null,
-      "lastUpdated": "2026-11-07T10:20:28Z",
+      "lastUpdated": "2026-11-07T15:20:10Z",
       "homeTeam": {
         "id": 66,
         "name": "Manchester United FC",
@@ -1601,7 +1608,7 @@
       "matchday": 8,
       "stage": "LEAGUE_STAGE",
       "group": null,
-      "lastUpdated": "2026-11-07T10:20:28Z",
+      "lastUpdated": "2026-11-07T15:20:10Z",
       "homeTeam": {
         "id": 5,
         "name": "FC Bayern München",
